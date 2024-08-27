@@ -1,2 +1,2 @@
-# katsetused
+# Katsetused
 Erinevad katsetused
