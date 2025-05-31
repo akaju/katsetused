@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><test>
+  
+    <event id="21" name="kaksyks" place="2"><place id="2" name="kohtkaks"/><contact id="1" email="email1"/></event>
+    <event id="22" name="kakskaks" place="2"><place id="2" name="kohtkaks"/><contact id="1" email="email1"/></event>
+    <event id="23" name="kakskolm" place="2"><place id="2" name="kohtkaks"/><contact id="1" email="email1"/></event>
+  
+  
+    <event id="31" name="kolmyks" place="3"><place id="3" name="kohtkolm"/><contact id="2" email="email2"/></event>
+    <event id="32" name="kolmkaks" place="3"><place id="3" name="kohtkolm"/><contact id="2" email="email2"/></event>
+    <event id="33" name="kolmkolm" place="3"><place id="3" name="kohtkolm"/><contact id="2" email="email2"/></event>
+  
+  
+    <event id="41" name="neliyks" place="4"><place id="4" name="kohtneli"/><contact id="2" email="email2"/></event>
+    <event id="42" name="nelikaks" place="4"><place id="4" name="kohtneli"/><contact id="2" email="email2"/></event>
+    <event id="43" name="nelikolm" place="4"><place id="4" name="kohtneli"/><contact id="2" email="email2"/></event>
+  
+  
+    <event id="51" name="viisyks" place="5"/>
+  
+</test>

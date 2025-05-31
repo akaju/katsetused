@@ -1,0 +1,9 @@
+<places>
+  <contact id="1" email="email1">
+    <place id="2" name="kohtkaks" />
+  </contact>
+  <contact id="2" email="email2">
+    <place id="3" name="kohtkolm" />
+    <place id="4" name="kohtneli" />
+  </contact>
+</places>

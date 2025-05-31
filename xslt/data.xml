@@ -1,0 +1,20 @@
+<events>
+  <place id="2">
+    <event id="21" name="kaksyks" />
+    <event id="22" name="kakskaks" />
+    <event id="23" name="kakskolm" />
+  </place>
+  <place id="3">
+    <event id="31" name="kolmyks" />
+    <event id="32" name="kolmkaks" />
+    <event id="33" name="kolmkolm" />
+  </place>
+  <place id="4">
+    <event id="41" name="neliyks" />
+    <event id="42" name="nelikaks" />
+    <event id="43" name="nelikolm" />
+  </place>
+  <place id="5">
+    <event id="51" name="viisyks" />
+  </place>
+</events>
