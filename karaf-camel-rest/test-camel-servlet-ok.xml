@@ -1,0 +1,61 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
+           xmlns:jaxws="http://cxf.apache.org/blueprint/jaxws"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xmlns:cxf="http://cxf.apache.org/blueprint/core"
+           xsi:schemaLocation="
+  http://www.osgi.org/xmlns/blueprint/v1.0.0  http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+  http://www.osgi.org/xmlns/blueprint-ext/v1.1.0  https://svn.apache.org/repos/asf/aries/tags/blueprint-0.3.1/blueprint-core/src/main/resources/org/apache/aries/blueprint/ext/blueprint-ext.xsd
+  http://cxf.apache.org/blueprint/jaxws http://cxf.apache.org/schemas/blueprint/jaxws.xsd
+  http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+  http://cxf.apache.org/blueprint/core  http://cxf.apache.org/schemas/blueprint/core.xsd
+  http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd                                                                                                                   
+  ">
+
+    <cm:property-placeholder persistent-id="neste.collector" update-strategy="reload">
+  </cm:property-placeholder>
+
+  <service interface="jakarta.servlet.Servlet" id="servlet">
+    <service-properties>
+      <entry key="alias" value="/a/svc"/>
+      <entry key="servlet-name" value="CamelServlet"/>
+    </service-properties>
+    <bean class="org.apache.camel.component.servlet.CamelHttpTransportServlet"/>
+  </service>
+  
+  <camelContext id="rest-test" xmlns="http://camel.apache.org/schema/blueprint">
+    <restConfiguration component="jetty"
+                       contextPath="/a/svc"
+                       bindingMode="auto"
+		       port="40000"
+                       >
+    </restConfiguration>
+    
+    <route id="restin">
+      <from uri="rest:post:/event" />
+      <to uri="direct:eventin"/>
+    </route>
+
+    <route id="eventin">
+      <from uri="direct:eventin"/>
+      <convertBodyTo type="java.lang.String"/>
+      <choice>
+        <when>
+          <simple>${header.TestMessageId} == null</simple>
+          <setHeader name="TestMessageId"><simple>${date:now:yyyyMMdd-HHmmssSSS}_${random(100000)}</simple></setHeader>
+          <setHeader name="TestMessageDate"><simple>${date:now:yyyyMMdd}</simple></setHeader>
+        </when>
+        <otherwise>
+          <setHeader name="TestMessageDate"><simple>${header.TestMessageId.substring(0,8)}</simple></setHeader>
+        </otherwise>
+      </choice>
+      <to uri="file:data/test" />
+      <transform>
+        <simple>Got message ${header.OPTMessageId}
+</simple>
+     </transform>
+    </route>
+  </camelContext>
+
+</blueprint>
