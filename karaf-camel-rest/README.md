@@ -36,6 +36,9 @@ Copy test-camel-servlet-ok.xml into $KARAF_HOME/deploy
 Check log for errors.
 
 Test
+```
+curl -v -H "Content-Type: text/plain" -d test.test.3 http://localhost:40000/a/svc/event
+```
 
 
 
