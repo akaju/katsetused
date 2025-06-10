@@ -49,8 +49,7 @@
       </choice>
       <to uri="file:data/test" />
       <transform>
-        <simple>Got message ${header.OPTMessageId}
-</simple>
+        <simple>Got message ${header.TestMessageId}</simple>
      </transform>
     </route>
   </camelContext>
