@@ -1,39 +1,36 @@
 
-Minimal Camel Servlet Installation
-==================================
+# Minimal Camel Servlet Installation
 
-Requirements
+## Requirements
 
 - Apache Karaf 4.4.7
 - Apache Camel 4.10.3
 - jakarta
 - Java 21
 
-Java Runtime
+## Install and Set Java Runtime
 
 export JAVA_HOME=/usr/lib/jvm/temurin-21-jre-amd64
 
-Unpack Karaf into KARAF_HOME
+## Install Karaf
 
-Test run
-
+- unpack Karaf into KARAF_HOME
+- test run
+```
 bin/karaf
+```
 
-OK
+## Install Camel
 
-Camel
------
-
-# version LTS is 4.10.3
-
+Version LTS is 4.10.3
+```
 feature:repo-add camel 4.10.3
-
 feature:install camel-core
 feature:install camel-blueprint
 feature:install camel-servlet
 feature:install camel-jetty
 feature:install jetty
-
+```
 Copy test-camel-servlet-ok.xml into $KARAF_HOME/deploy
 
 Check log for errors.
