@@ -13,9 +13,6 @@
   http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd                                                                                                                   
   ">
 
-    <cm:property-placeholder persistent-id="neste.collector" update-strategy="reload">
-  </cm:property-placeholder>
-
   <service interface="jakarta.servlet.Servlet" id="servlet">
     <service-properties>
       <entry key="alias" value="/a/svc"/>
