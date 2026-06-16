@@ -1,0 +1,52 @@
+
+# make network configuration dirs
+
+sudo mkdir -p /etc/tinc/testnet/hosts
+
+# create configuration file
+
+sudo vi /etc/tinc/testnet/tinc.conf
+
+# and put there
+
+Name = arvuti26
+Device = /dev/net/tun
+
+# create tinc-up and tinc-down scripts
+
+# tinc-up
+
+#!/bin/sh
+ip link set $INTERFACE up
+ip addr add 10.1.0.26/24 dev $INTERFACE
+
+# tinc-down
+
+#!/bin/sh
+ip link set $INTERFACE down
+ip addr del 10.1.0.26/24 dev $INTERFACE
+
+
+# make scripts executable
+
+sudo chmod +x /etc/tinc/testnet/tinc-down
+sudo chmod +x /etc/tinc/testnet/tinc-up
+
+# generate keys
+
+sudo tincd -n testnet --generate-keys
+
+# node configuration in /etc/tinc/testnet/hosts/arvuti22
+
+Subnet = 10.1.0.0/24
+Address = 192.168.12.107  # Public IP of this node (optional)
+
+
+### INSTALL ###
+
+sudo cp testnet-tinc.conf /etc/tinc/testnet/tinc.conf
+sudo cp testnet-hosts-arvuti22 /etc/tinc/testnet/hosts/arvuti22
+sudo cp testnet-hosts-arvuti26 /etc/tinc/testnet/hosts/arvuti26
+sudo cp testnet-tinc-up /etc/tinc/testnet/tinc-up
+sudo cp testnet-tinc-down /etc/tinc/testnet/tinc-down
+

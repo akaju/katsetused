@@ -1,0 +1,4 @@
+#!/bin/sh
+ip link set $INTERFACE down
+ip addr del 10.1.0.22/24 dev $INTERFACE
+

@@ -1,0 +1,35 @@
+
+# Install tinc
+
+sudo apt update
+sudo apt install tinc
+
+# make network configuration dirs
+
+sudo mkdir -p /etc/tinc/testnet/hosts
+
+# create configuration file
+
+sudo chmod +x /etc/tinc/testnet/tinc-down
+sudo chmod +x /etc/tinc/testnet/tinc-up
+
+# generate keys
+
+sudo tincd -n testnet --generate-keys
+Done.
+Please enter a file to save private RSA key to [/etc/tinc/testnet/rsa_key.priv]: 
+Please enter a file to save public RSA key to [/etc/tinc/testnet/hosts/arvuti22.pubkey]:
+
+# node configuration in /etc/tinc/testnet/hosts/arvuti22
+
+## INSTALL
+
+sudo cp testnet-tinc.conf /etc/tinc/testnet/tinc.conf
+sudo cp testnet-host-arvuti22 /etc/tinc/testnet/hosts/arvuti22
+sudo cp testnet-host-arvuti26 /etc/tinc/testnet/hosts/arvuti26
+sudo cp testnet-tinc-up /etc/tinc/testnet/tinc-up
+
+
+# TEST
+
+tincd -c /etc/tinc/testnet

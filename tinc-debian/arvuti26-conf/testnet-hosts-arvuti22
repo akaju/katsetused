@@ -1,0 +1,14 @@
+
+Subnet = 10.1.0.22/32
+
+#Subnet = 10.1.0.0/24
+Address = 192.168.12.107  # Public IP of this node (optional)
+
+-----BEGIN RSA PUBLIC KEY-----
+MIIBCgKCAQEAou/hT93G5fkcbLaJI+wpQC2grAhFOtT0wVpC24CNpQNbE0DhfUL/
+/SISW1PpItlyBtHUYWDNWk+pxckXWTizmnQtfUUtejDCFvfR1kudmkRgDwZcqdVh
+eFAx8MCafjr0ylU16KkJ9O59/yq6AV+f1swkPDQrsF0CGJ/vK+WpZzx5YQOJziOA
+vPxEjw+55q4aK4/rYZOletLMs1ZCOcfCpZ7QPROkpw9+A+nOCahlNY4EvssBpzb+
+xgfCkjqfkpz3UTEs3deS0YYT8Np2VoOzqP/S0HOWISTns6iVVugoy1xraIsyXErb
+7/61tWWJZFFdAGdVoFHC5HtgVexCRekqFQIDAQAB
+-----END RSA PUBLIC KEY-----
